@@ -1,0 +1,188 @@
+@media screen and (max-width: 985px) {
+/*===================Top Bar==================*/
+    .menu-list{
+        display: none;
+    }
+    .top-nav ul{
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        right: -30px;
+        padding: 0px 35px;
+        background: #312c32;
+        z-index: 1;
+    }
+
+    .top-nav ul:after{
+        width:0px;
+        height:0px;
+        position:absolute;
+        top:0%;
+        content:'';
+        transform:translate(0%, -100%);
+    }
+
+    .top-nav li{
+        float: none;
+        display: block;
+    }
+
+    .mobile-nav {
+        margin-top: 10px;
+        padding-right: 25px;
+        float: none;
+        display:inline-block;
+        box-shadow:0px 1px 1px rgba(0,0,0,0.15);
+        text-shadow:0px 1px 0px rgba(0,0,0,0.5);
+        color:#feffff;
+        font-size:16px;
+        transition:color linear 0.15s;
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    }
+    .mobile-nav:hover, .mobile-nav.menu-list {
+        text-decoration:none;
+        color:#18bc9c;
+    }
+    li hr{
+        display: block;
+        padding: 0;
+        top: -30px;
+        border-color: #98dafc;
+    }
+    .scroll-nav{
+        display: none;
+    }
+/*=====================header=====================*/
+
+    .mobile-header{
+        display: block
+    }
+    .normal-header{
+        display: none;
+    }
+    .header-row img{
+        width: 300px;
+        /*heigh/t: 30%;*/
+        display: block;
+        margin: auto;
+    }
+    .h-img{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+/*====================profile====================*/
+
+    #p-left{
+        padding-left: 0;
+    }
+    .main-char{
+        width: 250px;
+        height: 250px;
+    }
+    #p-right h2{
+        text-align: center;
+        color: #18bc9c;
+    }
+    #p-right h3{
+        text-align: center;
+        font-size: 20px;
+    }
+    #p-left h2{
+        margin-left: 0;
+        text-align: center;
+    }
+    #p-right p{
+        margin-right: 0%;
+        text-align: center;
+    }
+    .c-table{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .c-table{
+        width: 100%;
+        margin-left: -20px;
+    }
+    .s-normal{
+        display: none;
+    }
+    .c-table .c-right{
+        display: none;
+    }
+    #programming h2, #tools h2, #languages h2{
+        text-align: center;
+    }
+
+/*=====================projects====================*/
+
+    .mobile-project{
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .project-nav ul{
+        display: none;
+    }
+
+    .port-wrapper{
+        height: 1100px;
+    }
+    .portfolio{
+    	width: 240px;
+    	height: 160px;
+    }
+    .caption {
+        margin-left: -120px;
+    	width: 240px;
+    	height: 160px;
+    }
+    .caption h3{
+        font-size: 15px;
+    }
+    .caption-p{
+        display: none;
+    }
+    .p-links{
+        height: 60px;
+        bottom: -5;
+        left: 0;
+    }
+    .p-links a{
+        width: 60px;
+        height: 60px;
+    }
+    .p-links i{
+        font-size: 60px;
+    }
+
+/*===================experience===================*/
+    .e-row h2, .e-row h3, .e-row h4, .e-row p{
+        text-align: center;
+    }
+    .s-table{
+        margin: auto;
+        text-align: center;
+    }
+    .s-table li{
+        font-size: 16px;
+    }
+    .s-table li:hover{
+        font-size: 16.5px;
+
+    }
+
+    .submit{
+        font-size: 25px;
+    }
+    footer a{
+        margin: 10px 30px 10px 30px;
+    }
+    footer h2{
+        margin-top: 50px;
+    }
+}

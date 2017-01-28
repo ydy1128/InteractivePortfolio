@@ -1,0 +1,465 @@
+<!--<!DOCTYPE html>-->
+{% load staticfiles %}
+
+
+<html lang="en">
+
+<meta charset="utf-8">
+<meta name="viewport" content="wclassth=device-width, initial-scale=1">
+<meta name="author" content="DaeYoung Yoon">
+<meta name="description" content="Personal webpage of Undergraduate Computer Science Student.">
+<meta name="keywords" content="Personal CS Computer science resume projects">
+<head>
+    <title>DaeYoun Yoon - Personal Website</title>
+    {% load compress %}
+    {% compress css %}
+
+    <link rel="stylesheet" type="text/css" href='{% static 'css/style.css' %}'>
+    <link rel="stylesheet" type="text/css" href='{% static 'css/mobile.css' %}'>
+    <link rel="stylesheet" type="text/css" href='{% static 'css/loading.css' %}'>
+    <link rel="stylesheet" type="text/css" href='{% static 'css/arrowbox.css' %}'>
+    <!-- fonts & libraries -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.13/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" >
+    {% endcompress %}
+
+
+</head>
+<body>
+    <div class="loading-wrapper">
+    	<div class="loading">
+            <div class="loading-cir">
+                <label>	●</label>
+                <label>	●</label>
+                <label>	●</label>
+                <label>	●</label>
+                <label>	●</label>
+            </div>
+            <p>LOADING</p>
+    	</div>
+
+    </div>
+    <div class="mobile-web">
+        <p>Mobile Version is Currently on Development.</p>
+    </div>
+    <div id="screen-blocker-whole">
+    </div>
+    <div class="mobile-menu left"><i class="fa fa-bars " aria-hidden="true"></i></div>
+
+    <nav id="menu-top">
+
+        <ul class="hori">
+            <li class="cycle" id="profile"><a href="#">Profile</a></li>
+            <li class="cycle" id="projects"><a href="#">Projects</a></li>
+            <li class="cycle" id="experience"><a href="#">Experience</a></li>
+            <li class="cycle" id="skills"><a href="#">Skills</a></li>
+            <li class="cycle" id="contact"><a href="#">Contact</a></li>
+        </ul>
+
+    </nav>
+        <div class="mobile-menu right"><i class="fa fa-caret-right" aria-hidden="true"></i></div>
+
+    <div id="click-stopper"></div>
+    <div id="menu-back">
+    </div>
+    <div class="side-back">
+        <img src="{% static 'image/name.png' %}">
+        <hr>
+    </div>
+    <div id="body-back"><img src="{% static 'image/main.jpg' %}" class="back-img"/></div>
+    <div id="profile" class="page">
+        <div class="menu-side">
+            <ul class="vert profile">
+                <li><a id="about">About</a></li>
+                <li><a id="education">Education</a></li>
+                <li><a id="abroad">Study Abroad</a></li>
+                <li><a id="coursework">Coursework</a></li>
+            </ul>
+        </div>
+        <div id="contents-about" class="contents">
+            <h1>About</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <div id="profile-pic">
+                    <img src="{% static 'image/johnny.png' %}" />
+                    <h3>Johnny D.Y. Yoon</h3>
+                </div>
+                <p>
+                    I am a trendy Front-end Developer and Web Designer. I have a firm background in programming in general with following languages: C++, Python, HTML/CSS, and JavaScript. I have passion in UI/UX design through software and web applications and supporting graphic design.
+                </p>
+
+            </div>
+        </div>
+        <div id="contents-education" class="contents">
+            <h1>Education</h1>
+            <hr>
+            <div class="contents-wrapper">
+                {% for e in edu %}
+                    {% if e.abroad == False %}
+                        <h2 class="object-title">{{ e.institution }}, {{ e.place }}</h2>
+                        <h3 class="object-date">{{ e.start_date }} - {{ e.end_date }}</h3>
+                        <ul class="object-contents-bullets main-list">
+                            {% for d in e.degrees.all %}
+                            <li>
+                                <i class="fa fa-caret-down drop" aria-hidden="true"></i>
+                                <i class="fa fa-caret-up drop" aria-hidden="true"></i>
+                                <span>{{ d }}</span>
+                                <ul class="dropdown">
+                                {% for c in d.courses.all %}
+                                    <li> {{ c }} </li>
+                                {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="contents-abroad" class="contents">
+            <h1>Study Abroad</h1>
+            <hr>
+            <div class="contents-wrapper">
+                {% for e in edu %}
+                    {% if e.abroad == True %}
+                        <h2 class="object-title">{{ e.institution }}, {{ e.place }}</h2>
+                        <h3 class="object-date">{{ e.start_date }} - {{ e.end_date }}</h3>
+                        <ul class="object-contents-bullets main-list">
+                            {% for d in e.degrees.all %}
+                            <li>
+                                <i class="fa fa-caret-down drop" aria-hidden="true"></i>
+                                <i class="fa fa-caret-up drop" aria-hidden="true"></i>
+                                <span>{{ d }}</span>
+                                <ul class="dropdown">
+                                {% for c in d.courses.all %}
+                                    <li> {{ c }} </li>
+                                {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="contents-coursework" class="contents">
+            <h1>Related Coursework</h1>
+            <hr>
+            <div class="contents-wrapper">
+                {% for c in course %}
+                    {% if c.major %}
+                        <h2 class="object-title">{{ c.attr }}. {{ c.name }}</h2>
+                    <!--<li>exists</li>-->
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <div id="projects" class="page">
+        <div class="menu-side">
+            <ul class="vert projects">
+                <li><a id="projects">All Projects</a></li>
+                <li><a id="projects">Web</a></li>
+                <li><a id="projects">Mobile</a></li>
+                <li><a id="projects">Security</a></li>
+                <li><a id="projects">Data</a></li>
+                <li><a id="projects">In Progress</a></li>
+                <li><a id="projects">Finished</a></li>
+            </ul>
+        </div>
+        <div id="contents-projects" class="contents">
+            <div id="screen-blocker"></div>
+            <h1>Projects</h1>
+            <hr>
+            {% if project %}
+            <div class="grid contents-wrapper">
+                {% for p in project %}
+                    {% with p.order|stringformat:"i" as order %}
+                    {% with 'modal'|add:order as modal_id %}
+                    <div id="{{ modal_id }}" class="modal grid-item {% for t in p.tags.all %} {{ t.tag }} {% endfor %}">
+                        <!--<a id="{{ link_id }}" class="modal" href="{{ modal_id }}">-->
+                            {% with 'image/projects/'|add:p.img as image_static %}
+                            <img src="{% static image_static %}" />
+                            <div class="grid-hover">
+                                <h3>{{ p.title }}</h3>
+                                <hr>
+                                <h4>Languages</h4>
+                                <p>
+                                {% for s in p.skills.all %}
+                                    {% if s.category == "Language" %}
+                                        #{{ s.skill }}&nbsp
+                                    {% endif %}
+                                {% endfor%}
+                                </p>
+                                <h4>Libraries/Frameworks</h4>
+                                <p>
+                                {% for s in p.skills.all %}
+                                    {% if s.category == "Library" %}
+                                        #{{ s.skill }}&nbsp
+                                    {% endif %}
+                                    {% if s.category == "Framework" %}
+                                        #{{ s.skill }}&nbsp
+                                    {% endif %}
+                                {% endfor%}
+                                </p>
+                                <h4>Tools</h4>
+                                <p>
+                                {% for s in p.skills.all %}
+                                    {% if s.category == "Tools" %}
+                                        #{{ s.skill }}&nbsp
+                                    {% endif %}
+                                {% endfor%}
+                                </p>
+                            </div>
+                            {% endwith %}
+                        <!--</a>-->
+                    </div>
+                    {% endwith %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div id="modals">
+    {% if project %}
+        {% for p in project %}
+        {% with p.order|stringformat:"i" as order %}
+        {% with 'get-modal'|add:order as link_id %}
+        <div id="{{ link_id }}" class="get-modal">
+            <div class="modal-header"><div class="x-button">X</div></div>
+            <div class="modal-wrapper">
+                <div class="modal-subheader">
+                    <h2>{{ p.title }}</h2>
+                    <h3>{{ p.start_date }} - {{ p.end_date }}</h3>
+                </div>
+                <div class="modal-contents">
+                    {% if p.members != 1 %}
+                    <h3>Category</h3>
+                    <p>Team Project ({{ p.members }} members)</p>
+                    {% else %}
+                    <h3>Category</h3>
+                    <p>Individual Project</p>
+                    {% endif %}
+                    {% if p.description %}
+                    <h3>Description</h3>
+                    <p>{{ p.description }}</p>
+                    {% endif %}
+                    {% if p.prototype != "" %}
+                    <h3>Prototype</h3>
+                    <img src="{% static image_static %}image/prototype/{{ p.prototype }}">
+                    {% endif %}
+                    {% if p.demo != "" %}
+                    <h3>Demo</h3>
+                        {% if "mp4" in p.demo %}
+                        <video controls>
+                            <source src="{% static image_static %}image/demo/{{ p.demo }}" type="video/mp4">
+                        </video>
+                        {% else %}
+                        <img src="{% static image_static %}image/demo/{{ p.demo }}">
+                        {% endif %}
+                    {% endif %}
+                    {% if p.skills.all %}
+                    <h3>Required Skills</h3>
+                    <div class='modal-contents-skills'>
+                        <div class='modal-contents-skill'>
+                            <h4>Languages</h4>
+                            <ul>
+                            {% for s in p.skills.all %}
+                                {% if s.category == "Language" %}
+                                    <li>{{ s.skill }}</li>
+                                {% endif %}
+                            {% endfor%}
+                            </ul>
+                        </div>
+                        <div class='modal-contents-skill'>
+                            <h4>Libraries/Frameworks</h4>
+                            <ul>
+                            {% for s in p.skills.all %}
+                                {% if s.category == "Library" %}
+                                    <li>{{ s.skill }}</li>
+                                {% endif %}
+                                {% if s.category == "Framework" %}
+                                    <li>{{ s.skill }}</li>
+                                {% endif %}
+                            {% endfor%}
+                            </ul>
+                        </div>
+                        <div class='modal-contents-skill'>
+                            <h4>Tools</h4>
+                            <ul>
+                            {% for s in p.skills.all %}
+                                {% if s.category == "Tools" %}
+                                    <li>{{ s.skill }}</li>
+                                {% endif %}
+                            {% endfor%}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if p.links.all %}
+                    <h3>Links</h3>
+                    <ul class="modal-contents-links">
+                    {% for l in p.links.all %}
+                        {% if l.attr == 'video' %}
+                            <a class="{{ l.attr }}" href="{{ l.url }}" target="_blank" rel="{{ l.attr }}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        {% endif %}
+                        {% if l.attr == 'demo' %}
+                            <a class="{{ l.attr }}" href="{{ l.url }}" target="_blank" rel="{{ l.attr }}"><i class="fa fa-link" aria-hidden="true"></i></a>
+                        {% endif %}
+                        {% if l.attr == 'github' %}
+                            <a class="{{ l.attr }}" href="{{ l.url }}" target="_blank" rel="{{ l.attr }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        {% endif %}
+                    {% endfor%}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+        {% endwith %}
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div id="experience" class="page">
+        <div class="menu-side">
+            <ul class="vert experience">
+                <li><a id="career">Career</a></li>
+                <li><a id="volunteer">Volunteer</a></li>
+            </ul>
+        </div>
+        <div id="contents-career" class="contents">
+            <h1>Career</h1>
+            <hr>
+            <div class="contents-wrapper">
+                {% for e in exp %}
+                    {% if e.volunteer == False %}
+                        <h2>{{ e.institution }}, {{ e.place }}</h3>
+                        <h3 class="object-title">{{ e.job }}</h2>
+                        <h3 class="object-date">{{ e.start_date }} - {{ e.end_date }}</h3>
+                        <ul class="description">
+                            {{ e.description }}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div id="contents-volunteer" class="contents">
+            <h1>Career</h1>
+            <hr>
+            <div class="contents-wrapper">
+                {% for e in exp %}
+                    {% if e.volunteer == True %}
+                        <h2>{{ e.institution }}, {{ e.place }}</h3>
+                        <h3 class="object-title">{{ e.job }}</h2>
+                        <h3 class="object-date">{{ e.start_date }} - {{ e.end_date }}</h3>
+                        <ul class="description">
+                            {{ e.description }}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="skills" class="page">
+        <div class="menu-side">
+            <ul class="vert skills">
+                <li><a id="programming">Programming</a></li>
+                <li><a id="libraries">Libraries</a></li>
+                <li><a id="tools">Tools</a></li>
+            </ul>
+        </div>
+        <div id="contents-programming" class="contents">
+            <h1>Programming Languages</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <ul class="main-list">
+                {% for s in skill %}
+                    {% if s.category == "Language" %}
+                    <li><span class="left">{{ s.skill }}</span> <span class="right">{{ s.exp_level }}</span></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div id="contents-libraries" class="contents">
+            <h1>Libraries / Frameworks</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <ul class="main-list">
+                {% for s in skill %}
+                    {% if s.category == "Library" %}
+                    <li><span class="left">{{ s.skill }}</span> <span class="right">{{ s.exp_level }}</span></li>
+                    {% endif %}
+                    {% if s.category == "Framework" %}
+                    <li><span class="left">{{ s.skill }}</span> <span class="right">{{ s.exp_level }}</span></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div id="contents-tools" class="contents">
+            <h1>Software / IDEs</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <ul class="main-list">
+                {% for s in skill %}
+                    {% if s.category == "Tools" %}
+                    {% if s.skill != "Logic Studio" %}
+                    <li><span class="left">{{ s.skill }}</span> <span class="right">{{ s.exp_level }}</span></li>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="page">
+        <div class="menu-side">
+            <ul class="vert contact">
+                <li><a id="socialize">Socialize</a></li>
+                <li><a id="contact">Contact</a></li>
+            </ul>
+        </div>
+        <div id="contents-socialize" class="contents">
+            <h1>Social Networks</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <a id="email"><i class="fa fa-envelope" aria-hidden="true"></i><span> ydy1128@gmail.com </span></a>
+                <a href="https://www.linkedin.com/in/daeyoung-yoon-4b1975116" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i> www.linkedin.com/in/daeyoung-yoon-4b1975116</a>
+                <a href="https://www.facebook.com/john.yoon.92" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> www.facebook.com/john.yoon.92</a>
+                <a href="https://github.com/ydy1128" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i> github.com/ydy1128</a>
+            </div>
+        </div>
+        <div id="contents-contact" class="contents">
+            <h1>Contact Form</h1>
+            <hr>
+            <div class="contents-wrapper">
+                <p>
+                    This part is currently on development. <br> However, please feel free to enjoy the theme and interactions that had been developed.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- js libraries -->
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.1.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}" ></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/clipboard.js/1.5.13/clipboard.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/Vibrant.min.js' %}" ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.13/js/perfect-scrollbar.jquery.min.js" ></script>
+
+    <!-- js -->
+    <script type="text/javascript" src="{% static 'js/start.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/side_menu.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/contents.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'js/arrowbox.js' %}" ></script>
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!--<!DOCTYPE html>-->
+{% load staticfiles %}
+
+<html lang="en">
+
+<meta charset="utf-8">
+<meta name="viewport" content="wclassth=device-width, initial-scale=1">
+<meta name="author" content="DaeYoung Yoon">
+<meta name="description" content="Personal webpage of Undergraduate Computer Science Student.">
+<meta name="keywords" content="Personal CS Computer science resume projects">
+<head>
+    <title>DaeYoun Yoon - Personal Website</title>
+    <link rel="icon" href="{% static 'old/icons/logo.png' %}">
+
+    <!------------------css-------------------->
+    <link rel="stylesheet" href="{% static 'old/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'old/css/mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'old/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'old/css/jquery.fancybox.css' %}">
+
+
+    <!------------------external fonts-------------------->
+    <link rel="stylesheet"
+        type="text/css" href='https://fonts.googleapis.com/css?family=Open+Sans'/>
+    <link rel="stylesheet"
+        href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
+</head>
+<body>
+    <!----------------------top menu---------------------->
+    <div id="top">
+        <div id="logo">
+            <a class="top-logo" href="#top"></a>
+        </div>
+        <nav class="top-nav">
+            <a id="mobile-nav" class="mobile-nav">Menu</a>
+            <ul class="menu-list">
+                <li>
+                    <hr class="menu-hr">
+                    <a href="#profile" class="main-scroll">profile</a>
+                </li>
+                <li>
+                    <a href="#projects" class="main-scroll">projects</a>
+                </li>
+                <li>
+                    <a href="#experiences" class="main-scroll">experience</a>
+                </li>
+                <li>
+                    <a href="#skills" class="main-scroll">skills</a>
+                </li>
+                <li>
+                    <a href="#contact class="main-scroll"">contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="hovertrigger">
+            <nav class="scroll-nav">
+                <ul>
+                    <li><a href="#profile" title="Profile" class="icon-nav icon-profile main-scroll"><i class="fa fa-3x fa-file-text"></i></a><hr class="nav-hr"></li>
+                    <li><a href="#projects" title="Projects" class="icon-nav icon-projects main-scroll"><i class="fa fa-3x fa-folder-open"></i></a><hr class="nav-hr"></li>
+                    <li><a href="#experiences" title="Experiences" class="icon-nav icon-experience main-scroll"><i class="fa fa-3x fa-suitcase"></i></a><hr class="nav-hr"></li>
+                    <li><a href="#skills" title="Skills" class="icon-nav icon-skills main-scroll"><i class="fa fa-3x fa-wrench"></i></a><hr class="nav-hr"></li>
+                    <li><a href="#contact" title="Contact" class="icon-nav icon-contact main-scroll"><i class="fa fa-3x fa-envelope"></i></a><hr class="nav-hr"></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    <!-----------------------header----------------------->
+    <header>
+        <div id="top-header">
+            <div class="header-row col-md-12">
+                <div class="h-img col-md-4">
+                    <img class="design" src="{% static 'old/images/design.png' %}">
+                    <h1 class="mobile-header">&#8226 &nbsp Design &nbsp &#8226</h1>
+                </div>
+                <div class="h-img col-md-4">
+                    <img class="code" src="{% static 'old/images/code.png' %}">
+                    <h1 class="mobile-header">&#8226 &nbsp Code &nbsp &#8226</h1>
+                </div>
+                <div class="h-img col-md-4">
+                    <img class="develop" src="{% static 'old/images/develop.png' %}">
+                    <h1 class="mobile-header">&#8226 &nbsp Develop &nbsp &#8226</h1>
+                </div>
+            </div>
+            <h1 class="normal-header">- &nbsp Design &nbsp &#8226 &nbsp Code
+            &nbsp &#8226 &nbsp Develop &nbsp -</h1>
+            <hr class="body-hr-sky">
+        </div>
+    </header>
+
+    <!----------------------profile----------------------->
+    <div id="profile" class="clear">
+        <h2 class="title">Profile</h2>
+        <hr class="body-hr-white">
+        <p class="section-des">Artistic Software Engineer</p>
+        <div class="p-wrapper">
+            <div id="p-left" class="col-md-4">
+                <img class="main-char" src="{% static 'old/images/main_char.png' %}">
+                <br>
+                <h2>Johnny DY. Yoon</h2>
+            </div>
+            <div id="p-right" class="col-md-8">
+                <div class="about clear">
+                    <h2 class="sub-title">About me</h2>
+                    <div class="col-md-10">
+                    <p>I am an Undergraduate Computer Science major in Texas A&M.
+                    I am studying to become a full-stack web developer and a web designer.
+                    I also have a good knowledge of android front-end design.
+                    I enjoy working in a team as well as working individually.
+                    I love spending time fixing details in web front-end side to deploys things correctly.
+                    </p>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="education clear">
+                    <h2 class="sub-title">Education</h2>
+                    <div class="col-md-9">
+                        <h3>Texas A&M University, College Station TX</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <h3>May 2017</h3>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="p-profile">
+                            BS in Computer Science <br>
+                            Minor in Music <br>
+                            Minor in Art (Visualization)
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+                <div class="coursework clear">
+                    <h2 class="sub-title">Related Coursework</h2>
+                    <div class="col-md-10">
+                        {% if coursework %}
+                        <ul class="c-table">
+                            {% for c in coursework %}
+                            <li><span class="col-md-8">{{ c.name }}</span>
+                                <span class="col-md-2 s-normal">{{ c.attr }} </span>
+                                <span class="col-md-2 s-normal">{{ c.number }}</span></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------project----------------------->
+    <div id="projects" class="clear">
+        <h2 class="title">Projects</h2>
+        <hr class="body-hr-sky">
+        <nav class="project-nav">
+            <a id="mobile-project" class="mobile-project"
+                onclick="this.style.color = '#98dafc'"></a>
+            <ul>
+                <li><a data-rel="all" class="filter active">All Projects</a></li>
+                <li><a data-rel="web" class="filter">Web</a></li>
+                <li><a data-rel="android" class="filter">Android</a></li>
+                <li><a data-rel="re" class="filter">RE</a></li>
+            </ul>
+        </nav>
+        <div class="col-md-2"></div>
+        <div class="port-wrapper col-md-8">
+            <div class="proj-box col-md-6 col-sm-12 fancybox"  data-fancybox-group="gallery" data-filter="android">
+                <div class="slide">
+                    <div class="caption">
+                        <h3>Goal Achiever</h3>
+                        <hr class="hr-port">
+                        <div class="caption-p">
+                            This android application uses a lock/unlock screen detector to make the users focus on their tasks. <br> <br>
+                            Type: Team Project (2 people) <br>
+                            Skills: Java, XML, Android Studio <br>
+                            Status: Finished
+                        </div>
+                        <div class="p-links">
+                            <a target="_blank" href="https://github.com/sjroh/GoalAchiever">
+                                <i title="Github" class="fa fa-lg fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <img class="portfolio" src="{% static 'old/images/goalachiever.jpg' %}"> </img>
+                </div>
+            </div>
+
+            <div class="proj-box  col-md-6 col-sm-12 fancybox"  data-fancybox-group="gallery" data-filter="android">
+                <div class="slide">
+                    <div class="caption">
+                        <h3>Wanting To Trade</h3>
+                        <hr class="hr-port">
+                        <div class="caption-p">
+                            This android application allows the user to search, buy, sell a product and give automatic search results and notifications. <br> <br>
+                            Type: Team Project (8 people) <br>
+                            Skills: Java, XML, Android Studio <br>
+                            Status: In Progress (Private Repository)
+                        </div>
+
+                    </div>
+                    <img class="portfolio" src="{% static 'old/images/wtt.png' %}"> </img>
+                </div>
+            </div>
+
+            <div class="proj-box col-md-6 col-sm-12 fancybox"  data-fancybox-group="gallery" data-filter="web">
+                <div class="slide">
+                    <div class="caption">
+                        <h3>Website of Johnny Yoon</h3>
+                        <hr class="hr-port">
+                        <div class="caption-p">
+                            Personal interactive resume website of Johnny DY. Yoon. <br> <br>
+                            Type: Individual Project <br>
+                            Skills: Python, Django, HTML/CSS, JQuery, Bootstrap <br>
+                            Status: Finished
+                        </div>
+                        <div class="p-links">
+                            <a target="_blank" href="https://ydy1128.pythonanywhere.com">
+                                <i title="Link" class="fa fa-lg fa-chain"></i>
+                            </a>
+                            <a target="_blank" href="https://github.com/ydy1128/mysite">
+                                <i title="Github" class="fa fa-lg fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <img class="portfolio" src="{% static 'old/images/personal_website.png' %}"> </img>
+                </div>
+            </div>
+            <div class="proj-box col-md-6 col-sm-12 fancybox"  data-fancybox-group="gallery" data-filter="re">
+                <div class="slide">
+                    <div class="caption">
+                        <h3>Assembly Breakpoint Recovery</h3>
+                        <hr class="hr-port">
+                        <div class="caption-p">
+                            Reverse Engineering disassembly project to find the time takes for recovery at a certain breakpoint. <br> <br>
+                            Type: Team Project (2 people) <br>
+                            Skills: Python, pyxed, Assembly (x86)<br>
+                            Status: Finished
+                        </div>
+                        <div class="p-links">
+                            <a target="_blank" href="https://github.com/ydy1128/ABR">
+                                <i title="Github" class="fa fa-lg fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <img class="portfolio" src="{% static 'old/images/abr.png' %}"> </img>
+                </div>
+            </div>
+            <div class="proj-box  col-md-6 col-sm-12 fancybox"  data-fancybox-group="gallery" data-filter="web">
+                <div class="slide">
+                    <div class="caption">
+                        <h3>AINAF Website</h3>
+                        <hr class="hr-port">
+                        <div class="caption-p">
+                            Asians in America Foundation is a non-profit organization that is going to be built to help and raise fund for, but not limited to, Asians in US. <br> <br>
+                            Type: Individual Project <br>
+                            Skills: PHP, HTML/CSS, jQuery, Ajax<br>
+                            Status: In Progress
+                        </div>
+                        <div class="p-links">
+                            <a target="_blank" href="http://webprojectesing.esy.es/">
+                                <i title="Link" class="fa fa-lg fa-chain"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <img class="portfolio" src="{% static 'old/images/ainaf.png' %}"> </img>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+    <div id="experiences" class="clear">
+        <h2 class="title">Experiences</h2>
+        <hr class="body-hr-white">
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <h2 class="sub-title">Career</h2>
+                <hr>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Habitat for Humanity, Bryan TX</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">IT Intern</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">Feb 2016 - Present</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Managed the email migration from local server to Cloud based service.</li>
+                        <li>Troubleshoot problems for hardware, software MS 2008 server, authentification, and network.</li>
+                        <li>Interact with and learn from outsourcing IT consulting company for larger problems.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Texas A&M Health Science Center</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">Research Assistant</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">Aug 2014 - Jan2015</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Created a web-based entity resolution interface in Public Health Privacy Preserving Research.</li>
+                        <li>Developed the interface using HTML/CSS, JavaScript (D3.js and JQuery), JSON, and DOM elements.</li>
+                        <li>Created private course website for the supervisor.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Texas A&M Computing and Information Services</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">Research Assistant</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">Jun 2014 - Aug 2014</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Implemented and tested shortest path algorithms.</li>
+                        <li>Parallel computing research to run 1000 CPUs together.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <h2 class="sub-title">Study Abroad</h2>
+                <hr>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Texas A&M Santa Chiara Study Center (Accepted)</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">Italy</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">May 2016 - Jun 11th 2016</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Coursework in Ethic and Engineering.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Texas A&M Soltis Research Center</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">Costa Rica</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">Jan 2016</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Coursework in Digital Photography.</li>
+                        <li>Exposed creativity through photography and design project.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+        <div class="e-row col-md-12">
+            <div class="col-md-2 "></div>
+            <div class="col-md-8 ">
+                <div class="e-company col-md-12"><h3>Texas A&M Soltis Research Center</h3></div>
+                <div class="e-left col-md-8 ">
+                    <h4 class="e-role">Costa Rica</h4>
+                </div>
+                <div class="e-right col-md-4 ">
+                    <p class="e-dates">Jan 2015</p>
+                </div>
+                <div class="e-des col-md-12">
+                    <ul>
+                        <li>Coursework in Enviromental Design.</li>
+                        <li>Learned about basic design principals and how to integrate creativity in them through lecture and multiple team projects.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 "></div>
+        </div>
+    </div>
+
+    <div id="skills" class="clear">
+        <h2 class="title">Skills</h2>
+        <hr class="body-hr-sky">
+        <div class="s-row clear">
+            <div class="s-left col-md-1">
+                <p></p>
+            </div>
+            <div class="s-wrapper col-md-5">
+                <div id="programming" class="col-md-12">
+                    <h2>Programming</h2>
+                    <div class="stars">
+                        <span class="content-filled"></span>
+                        <span class="content-notfilled"></span>
+                    </div>
+                    <ul class="s-table">
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">C++</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level5 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">HTML/CSS</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level5 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Java</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Python</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">MySQL</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">XML</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Django</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">JavaScript</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">jQuery</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Bootstrap</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">PHP</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">CodeIgniter</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">JSON</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level2 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">D3.js</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level1 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Haskell</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level1 col-md-6"></span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="s-wrapper col-md-5">
+                <div id="tools" class="col-md-12">
+                    <h2>Tools</h2>
+                    <ul class="s-table">
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Visual Studio</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level5 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Eclipse</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level5 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Mac</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level5 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Android Studio</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Linux/Unix</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Github</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Adobe Illustrator</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level4 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">MS Office</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level3 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Adobe Photoshp</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level2 col-md-6"></span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Adobe Indesign</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level level1 col-md-6"></span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="s-right col-md-1">
+                <p></p>
+            </div>
+        </div>
+        <div class="s-row clear">
+            <div class="s-left col-md-1">
+                <p></p>
+            </div>
+            <div class="s-wrapper col-md-5">
+                <div id="languages" class="col-md-12">
+                    <h2>Languages</h2>
+                    <ul class="s-table">
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Korean</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level col-md-12">Native</span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">English</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level col-md-12">Daily Use</span></div></li>
+                        <li class="clear"><div class="st-left col-md-6 col-sm-6 col-xs-6"><span class="content col-md-12">Chinese</span></div>
+                            <div class="st-right col-md-6 col-sm-6 col-xs-6"><span class="level col-md-12">Aware of</span></div></li>
+                        <li class="dummy"><span class="level1 level2 level3 level4 level5 col-md-6"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="s-wrapper col-md-5"></div>
+            <div class="s-right col-md-1">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="clear">
+        <h2 class="title">Contact</h2>
+        <hr class="body-hr-white">
+        <div id="contact-form">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 ">
+                <div class="col-md-12 contactform">
+                    {% block content %}
+                    <form role="form" action="#contact" method="post">
+                        {% csrf_token %}
+                        <ul>
+                            {% for field in form %}
+                            <li><div class="contact-field col-md-12">{{ field }}</div></li>
+                            {% endfor %}
+                        </ul>
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        <div class="col-md-12 submit-div">
+                            <button class="submit" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    {% endblock %}
+
+                </div>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <footer class="clear">
+        <div class="socialize col-md-12">
+            <div class="col-md-4">
+                <i class="fa fa-3x fa-envelope-o email-i"></i>
+                <p class="footer-email">
+                    ydy1128@gmail.com
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="title">Socialize</h2>
+                <p>
+                    <div class="a-holder col-md-4">
+                        <a href="https://github.com/ydy1128" target="_blank">
+                            <i class="fa fa-lg fa-github"></i>
+                        </a>
+                    </div>
+                    <div class="a-holder col-md-4">
+                        <a href="https://www.facebook.com/john.yoon.92" target="_blank">
+                            <i class="fa fa-lg fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="a-holder col-md-4">
+                        <a href="https://www.linkedin.com/in/daeyoung-yoon-4b1975116?trk=nav_responsive_tab_profile_pic" target="_blank">
+                            <i class="fa fa-lg fa-linkedin"></i>
+                        </a>
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="title">Location</h2>
+                <p class="footer-loc">
+                    College Station, TX
+                </p>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <p>
+                Copyright © 2016 DaeYoung Yoon. All rights reserved.
+            </p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!------------------js-------------------->
+    <script type="text/javascript" src="{% static 'old/js/jquery-1.12.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/slider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/top_menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/submit.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'old/js/caption.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/jquery.fancybox.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/jquery.fancybox-1.3.4.pack.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/gallery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'old/js/skills.js' %}"></script>
+
+
+</body>
+</html>

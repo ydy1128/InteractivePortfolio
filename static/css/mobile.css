@@ -1,0 +1,144 @@
+@media screen and (max-width: 1050px) {
+    .mobile-web{
+        display: none;
+        background:black;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .mobile-web p{
+        position: absolute;
+        width: 100%;
+        top: 45%;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+        color: #00C399;
+    }
+    #menu-top{
+    	list-style-type: none;
+    	display: block;
+    	padding:0;
+    	width: 50%;
+    	height: 100%;
+    	overflow: hidden;
+        margin: 0 25%;
+    }
+    #menu-top .hori{
+
+        width: 500%;
+        height: 80px;
+    }
+    #menu-top .hori li{
+        display: inline-block;
+    	float: left;
+    	width: 20%;
+    	height: 80px;
+    }
+    #menu-top .hori li a{
+    	cursor: default;
+    	color: black;
+        margin-top: 20px;
+    }
+    #menu-top .hori li a.active{
+    	border: 2px solid black;
+    	color: black;
+    }
+    .mobile-menu{
+        z-index: 30;
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 60px;
+        width: 25%;
+        text-align: center;
+        font-size: 40px;
+        padding-top: 20px;
+    }
+    .mobile-menu.left{
+        left: 0;
+    }
+    .mobile-menu.right{
+        left: 75%;
+    }
+    .mobile-menu i{
+        vertical-align: middle;
+        display: block;
+    }
+    .menu-side, .side-back{
+        z-index: 80;
+    }
+    .side-back{
+        width: 25%;
+    }
+    .side-back img{
+    	width: 130px;
+    }
+    .menu-side .vert{
+    	font-size: 19px;
+    }
+    .menu-side{
+        width: 25%;
+    }
+    .contents{
+        left: 0;
+    	width: 100%;
+	    height: calc(100% - 80px);
+    	margin: 0;
+    }
+
+    #profile #contents-about p{
+        margin: 5% 2.5%;
+    }
+}
+@media screen and (max-width: 760px) {
+    #menu-top .hori li a{
+    	font-size: 18.5px;
+        margin-top: 25px;
+    }
+    .mobile-menu{
+        font-size: 30px;
+        padding-top: 25px;
+    }
+    .side-back{
+        width: 40%;
+    }
+    .side-back img{
+    	width: 90px;
+    }
+    .menu-side{
+        width: 40%;
+    }
+    .menu-side .vert{
+    	font-size: 17px;
+    	padding-left: 20px;
+    }
+
+    .contents h1{
+        text-align: center;
+        padding-left: 0;
+    }
+    #profile #contents-about #profile-pic{
+        display: block;
+        width:100%;
+        margin: 2% 0;
+    }
+    #profile #contents-about img{
+        margin: auto;
+        width: 40%;
+    }
+    #profile #contents-about h3{
+        width: 100%;
+        margin-top: 2%;
+        text-align: center;
+    }
+    #profile #contents-about p{
+        display: block;
+        width: 90%;
+        margin: 2% 5%;
+        text-align: center;
+    }
+}
